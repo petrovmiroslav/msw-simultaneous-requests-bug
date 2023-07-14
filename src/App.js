@@ -1,7 +1,20 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  React.useEffect(() => {
+    const fetchAll = async () => {
+      const response = await Promise.all([
+        fetch('/cats'),
+        fetch('/dogs')
+      ])
+    }
+
+    fetchAll()
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
